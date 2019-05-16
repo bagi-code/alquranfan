@@ -2,9 +2,7 @@ package com.bagicode.alquranfan
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.widget.LinearLayout
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -12,11 +10,10 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.bagicode.alquranfan.model.Ayah
 import com.bagicode.alquranfan.model.MainModel
 import com.google.gson.Gson
-import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import android.support.v7.widget.GridLayoutManager
-
+import com.bagicode.alquranfan.adapter.MainAdapter
 
 
 class MainGridActivity : AppCompatActivity() {

@@ -1,10 +1,11 @@
-package com.bagicode.alquranfan
+package com.bagicode.alquranfan.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bagicode.alquranfan.R
 import com.bagicode.alquranfan.model.Ayah
 import kotlinx.android.synthetic.main.row_item_ayat.view.*
 
