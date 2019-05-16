@@ -15,12 +15,14 @@ import com.google.gson.Gson
 import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
+import android.support.v7.widget.GridLayoutManager
 
-class MainActivity : AppCompatActivity() {
+
+
+class MainGridActivity : AppCompatActivity() {
 
     var baseUrl: String? = null
     val ayahes = ArrayList<Ayah>()
-    var ayates: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +32,16 @@ class MainActivity : AppCompatActivity() {
         baseUrl = "http://api.alquran.cloud/v1/surah/$key"
         getAyah()
 
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        //recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+//        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun getAyah() {
         ayahes.clear()
         recyclerView.adapter = null
 
-        AndroidNetworking
-            .get(baseUrl)
+        AndroidNetworking.get(baseUrl)
             .setPriority(Priority.MEDIUM)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
@@ -58,12 +61,8 @@ class MainActivity : AppCompatActivity() {
                                 response_one.data.ayahs[i].text)
                         )
 
-                        ayates += response_one.data.ayahs[i].text+" 0 "
-
                     }
                     recyclerView.adapter = MainAdapter(ayahes)
-
-                    tv_ayar.text = ayates
 
                 }
 
